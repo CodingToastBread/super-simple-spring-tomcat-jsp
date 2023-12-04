@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="me.dailycode.spring.legacy.dao.SampleDAO">
+
+    <select id="getCurrentTimeString" resultType="java.lang.String">
+        select current_timestamp::text
+    </select>
+
+    <select id="getSampleRecord" resultType="sampleDTO">
+        with temp_1(id, name, working_area) as (
+            values('123', 'toastbread', 'my working area is seoul')
+        )
+        select id, name, working_area from temp_1
+    </select>
+
+</mapper>
